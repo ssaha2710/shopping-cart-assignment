@@ -2,14 +2,41 @@
   "name": "code-exercise",
   "version": "1.0.0",
   "description": "This is a shopping cart coding exercise",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "canned -p 5000 ./server"
+    "start": "webpack-dev-server .",
+    "build": "Webpack ."
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "canned": "^0.3.12"
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.1",
+    "canned": "^0.3.3",
+    "express": "^4.18.1",
+    "file-loader": "^6.2.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.0",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/runtime": "^7.19.0",
+    "@svgr/webpack": "^6.3.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "svg-inline-loader": "^0.8.2",
+    "svg-url-loader": "^8.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0"
   }
 }
