@@ -1,67 +1,71 @@
-.product-listing-page{
-    display: flex;
+.product-listing-page {
+  display: flex;
 }
-
-.categories{
-    height: 100vh;
-    width: 15vw;
-    position: absolute;
-    left:0px;
-    background-color: grey;
+.categories {
+  height: 100vh;
+  width: 20%;
+  background-color: lightgrey;
 }
-
-.products{
-    height: 100vh;
-    background-color: bisque;
-    position: absolute;
-    left: 15%;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: baseline;
-    align-content: space-between;
-    overflow-y: scroll;
+.products {
+  background-color: white;
+  height: 100vh;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+  align-content: space-between;
+  overflow-y: scroll;
 }
-
-.product{
-    height: 25%;
-    width: 24%;
-    margin-bottom: 12%;
-    
+.product {
+  height: 37%;
+  width: 22%;
+  margin-bottom: 18%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
 }
-
+.product .product-name {
+  width: 100%;
+  height: 24%;
+}
+section {
+  display: flex;
+  flex-direction: row;
+  height: 16%;
+  align-items: center;
+  border-bottom: 2px dotted black;
+}
+section p {
+  height: 20%;
+  white-space: nowrap;
+  width: 30%;
+}
 .product img {
-    height: 54%;
-    margin: 21px;
-}    
-
-.product .product-name{
-    font-weight: bold;
-    text-align: center;
-    height: 15%;
+  height: 100%;
+  width: 100%;
+}
+.product .buy-btn {
+  background-color: rgb(166, 20, 139);
+  color: white;
+  width: 50%;
+}
+.categories .selected {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin: 4%;
+}
+.categories .not-selected {
+  font-family: 100;
+  border-bottom: 1px solid black;
+  margin: 4%;
 }
 
-.product .product-desc{
-    position: relative;
-    bottom: 23px;
-    width: 100%;
-    height: 36%;
-}    
-
-.product .buy-btn{
-    position: relative;
-    bottom: 24px;
-    left: 23p;
-    left: 94px;
-    background-color: maroon;
-    color:white;
-}
-
-.categories .selected{
-    font-weight: bold;
-}
-
-.categories .not-selected{
-    font-family: 100;
+.product-desc {
+  width: 100%;
+  background: lightgray;
+  padding: 6%;
+  height: 100%;
 }

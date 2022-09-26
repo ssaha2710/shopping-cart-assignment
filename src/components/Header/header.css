@@ -1,0 +1,51 @@
+header {
+  height: 8vh;
+  width: 80vw;
+  display: flex;
+  padding: 0 10%;
+  position: relative;
+}
+header::after {
+  content: "";
+  background: -webkit-linear-gradient(#909090, #f8f8f8);
+  display: block;
+  height: 7%;
+  width: 80%;
+  position: absolute;
+  bottom: 0;
+}
+.cart {
+  position: absolute;
+  right: 0px;
+  top: 33px;
+}
+
+.header-right {
+  width: 10%;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+  gap: 2%;
+  margin-left: 4%;
+}
+
+.nav-left a,
+.header-right a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  display: flex;
+  column-gap: 7px;
+}
+
+.cart-image {
+  position: relative;
+  bottom: 21%;
+  left: 39%;
+}

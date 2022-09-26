@@ -1,38 +1,65 @@
-import React , { useEffect , useState , useRef} from "react";
+import React, { useEffect, useState } from "react";
+import BtnSlider from "./btnSlider";
 import axios from "axios";
-import "./Carousel.css";
 
-const Carousel = () =>{
-    const [ banners ,setBanners ] = useState([]);
-    const carousel = useRef();
+const Carousel = () => {
+  const [banners, setBanners] = useState([]);
+  const [slideIndex, setSlideIndex] = useState(1);
 
-    useEffect(()=>{
-        axios.get("http://localhost:3000/banners")
-        .then(res =>setBanners(res.data))
-    },[])
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/banners")
+      .then((res) => setBanners(res.data));
+  }, []);
 
-    const incrementCarousel = delta =>{
-        if(carousel.current){
-            const width = carousel.current.offsetWidth;
-            carousel.current.scrollTo(
-                carousel.current.scrollLeft + width * delta,
-                0
-            )
-        }
+  const nextSlide = () => {
+    if (slideIndex !== banners.length) {
+      setSlideIndex(slideIndex + 1);
+    } else if (slideIndex === banners.length) {
+      setSlideIndex(1);
     }
+  };
 
+  const prevSlide = () => {
+    if (slideIndex !== 1) {
+      setSlideIndex(slideIndex - 1);
+    } else if (slideIndex === 1) {
+      setSlideIndex(banners.length);
+    }
+  };
 
-    return (<div className="carousel-container"> 
-       <div className="carousel-btn left-btn" onClick={()=> incrementCarousel(-1)}/>
-       <div className="carousel-btn right-btn" onClick={()=> incrementCarousel(1)}/>
-       <div className="carousel" ref={carousel}>
-        {banners && banners.map( el =>{
-            return (<div className="carousel-item">
-                    <img src={el.bannerImageUrl} alt ={el.bannerImageAlt}/>
-                </div>)
+  const moveDot = (index) => {
+    setSlideIndex(index);
+  };
+
+  return (
+    <div className="container-slider">
+      {banners &&
+        banners.map((el, index) => {
+          return (
+            <div
+              key={el.id}
+              className={
+                slideIndex === index + 1 ? "slide active-anim" : "slide"
+              }
+            >
+              <img src={el.bannerImageUrl} alt={el.bannerImageAlt} />
+            </div>
+          );
         })}
-       </div>
-    </div>)
-}
+      <BtnSlider moveSlide={nextSlide} direction={"next"} />
+      <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+
+      <div className="container-dots">
+        {Array.from({ length: 5 }).map((item, index) => (
+          <div
+            onClick={() => moveDot(index + 1)}
+            className={slideIndex === index + 1 ? "dot active" : "dot"}
+          ></div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Carousel;

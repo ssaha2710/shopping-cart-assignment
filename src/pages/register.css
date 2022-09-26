@@ -1,0 +1,47 @@
+.register-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sidebar h1 {
+  position: relative;
+  top: 50%;
+}
+
+.sidebar p {
+  position: relative;
+  top: 60%;
+}
+
+form {
+  width: 20vw;
+}
+
+.form-group label {
+  visibility: hidden;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid grey;
+  margin: 7% 0%;
+}
+
+form .form-group:focus {
+  border-bottom: 2px solid green;
+}
+
+.form-group input {
+  border: none;
+}
+
+.form-group input:focus {
+  outline: none;
+}
+
+button {
+  width: 20vw;
+  background: rgb(166, 20, 139);
+  color: white;
+}
