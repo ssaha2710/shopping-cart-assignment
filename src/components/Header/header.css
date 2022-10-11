@@ -33,10 +33,14 @@ header::after {
   margin-left: 4%;
 }
 
-.nav-left a,
+.nav-left a {
+  text-decoration: none;
+  color: black;
+}
 .header-right a {
   text-decoration: none;
   color: black;
+  padding: 6%;
 }
 
 ul {
@@ -48,4 +52,23 @@ ul {
   position: relative;
   bottom: 21%;
   left: 39%;
+}
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 480px) {
+  .modalContainer {
+    height: 92%;
+    position: absolute;
+    top: 8%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .modalContainer {
+    height: 92%;
+    position: absolute;
+    top: 8%;
+    width: 100%;
+  }
 }

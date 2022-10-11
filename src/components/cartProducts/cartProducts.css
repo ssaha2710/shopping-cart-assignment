@@ -35,15 +35,32 @@
 
 .cart-modifier button {
   text-align: center;
-  width: 17%;
-  border-radius: 50%;
+  width: 8%;
   height: 100%;
   display: block;
-  border: 2px solid black;
+  border: none;
 }
 
 .cart-modifier p {
   width: 10%;
   font-size: 1em;
   margin-bottom: 0;
+  margin-top: 0%;
 }
+
+.lowest-price {
+  background: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2% 1%;
+  height: 13%;
+  gap: 4%;
+}
+
+.lowest-price p {
+  white-space: nowrap;
+  font-size: 0.5em;
+}
+
+/*MEDIA QUERIES*/

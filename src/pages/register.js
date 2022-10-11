@@ -1,6 +1,5 @@
-import React, { useState, useRef } from "react";
-import Login from "./login";
-import { Alert } from "react-bootstrap";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Home from "./../pages/home";
 import "./register.css";
 import { validateEmail, validatePassword } from "../utils/utils";
@@ -44,80 +43,84 @@ const Register = () => {
       {login ? (
         <Home />
       ) : (
-        <DocumentTitle title="Saabka-Bazaar/Home">
-          <div className="register-container">
-            <div tabIndex="0" className="sidebar">
-              <h1>Signup</h1>
-              <p> We do not share your personal details with anyone </p>
+        <DocumentTitle title="Saabka-Bazaar">
+          <>
+            <div className="register-container">
+              <div tabIndex="0" className="sidebar">
+                <h1>Signup</h1>
+                <p> We do not share your personal details with anyone </p>
+              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    className="form control"
+                    placeholder="First Name"
+                    onChange={(e) => setFirstName(e.target.value)}
+                    tabIndex="1"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    className="form control"
+                    placeholder="Last Name"
+                    onChange={(e) => setLastName(e.target.value)}
+                    tabIndex="2"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Email </label>
+                  <input
+                    type="text"
+                    className="form control"
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    tabIndex="3"
+                  />
+                </div>
+                <p>{error.EmailError}</p>
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form control"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    tabIndex="4"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Confirm Password</label>
+                  <input
+                    type="password"
+                    className="form control"
+                    placeholder="Confirm Password"
+                    onChange={(e) => setconfirmPassword(e.target.value)}
+                    tabIndex="5"
+                  />
+                </div>
+                {flag && (
+                  <div
+                    data-testid="alert"
+                    role="alert"
+                    color="primary"
+                    variant="warning"
+                    tabIndex="6"
+                  >
+                    <></>
+                    {Object.values(error).map((el, idx) => {
+                      return <li key={idx}>{el}</li>;
+                    })}
+                  </div>
+                )}
+                <button tabIndex="7">Signup</button>
+                Already Registered ? <Link to="/login">Login</Link>
+              </form>
             </div>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>First Name</label>
-                <input
-                  type="text"
-                  className="form control"
-                  placeholder="First Name"
-                  onChange={(e) => setFirstName(e.target.value)}
-                  tabIndex="1"
-                />
-              </div>
-              <div className="form-group">
-                <label>Last Name</label>
-                <input
-                  type="text"
-                  className="form control"
-                  placeholder="Last Name"
-                  onChange={(e) => setLastName(e.target.value)}
-                  tabIndex="2"
-                />
-              </div>
-              <div className="form-group">
-                <label>Email </label>
-                <input
-                  type="text"
-                  className="form control"
-                  placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  tabIndex="3"
-                />
-              </div>
-              <p>{error.EmailError}</p>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form control"
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  tabIndex="4"
-                />
-              </div>
-              <div className="form-group">
-                <label>Confirm Password</label>
-                <input
-                  type="password"
-                  className="form control"
-                  placeholder="Confirm Password"
-                  onChange={(e) => setconfirmPassword(e.target.value)}
-                  tabIndex="5"
-                />
-              </div>
-              {flag && (
-                <Alert
-                  role="alert"
-                  color="primary"
-                  variant="warning"
-                  tabIndex="6"
-                >
-                  <></>
-                  {Object.values(error).map((el) => {
-                    return <li>{el}</li>;
-                  })}
-                </Alert>
-              )}
-              <button tabIndex="7">Signup</button>
-            </form>
-          </div>
+          </>
         </DocumentTitle>
       )}
     </>

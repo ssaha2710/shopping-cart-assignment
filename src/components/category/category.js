@@ -17,7 +17,11 @@ const Category = () => {
     <ul className="category-container">
       {categories.map((el, idx) => {
         return (
-          <li className={`category-item-${idx}`}>
+          <li
+            className={`category-item-${idx}`}
+            key={idx}
+            data-testid={`category-item-${idx}`}
+          >
             <img src={el.imageUrl} alt={el.name} />
             <div className="category-details">
               <p>{el.name}</p>
@@ -34,4 +38,3 @@ const Category = () => {
 };
 
 export default Category;
-// //

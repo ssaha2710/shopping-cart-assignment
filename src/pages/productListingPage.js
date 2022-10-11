@@ -60,9 +60,11 @@ const ProductListingPage = () => {
     <DocumentTitle title="Saabka-Bazaar/products">
       <div className="product-listing-page">
         <div className="categories">
-          {categories.map((el) => {
+          {categories.map((el, idx) => {
             return (
               <div
+                data-testid={`categories-${idx}`}
+                key={idx}
                 className={
                   selectCategory === el.name && isSelected
                     ? "selected"
@@ -77,9 +79,13 @@ const ProductListingPage = () => {
         </div>
         <ul className="products">
           {!isSelected &&
-            products.map((el) => {
+            products.map((el, idx) => {
               return (
-                <li className="product" key={el.id}>
+                <li
+                  className="product"
+                  data-testid={`products-${idx}`}
+                  key={el.id}
+                >
                   <div className="prod-name">{el.name}</div>
                   <img src={el.imageURL} alt={el.description} />
                   <div className="product-desc"> {el.description}</div>
@@ -93,9 +99,9 @@ const ProductListingPage = () => {
               );
             })}
           {isSelected &&
-            filteredProducts.map((el) => {
+            filteredProducts.map((el, idx) => {
               return (
-                <li className="product">
+                <li className="product" key={idx}>
                   <div className="prod-name">{el.name}</div>
                   <img src={el.imageURL} alt={el.description} />
                   <div className="product-desc"> {el.description}</div>

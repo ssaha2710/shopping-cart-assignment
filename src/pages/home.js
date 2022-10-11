@@ -5,7 +5,7 @@ import DocumentTitle from "react-document-title";
 
 const Home = () => {
   return (
-    <DocumentTitle title="Saabka-Bazaar/Home">
+    <DocumentTitle title="Saabka-Bazaar/Home" >
       <>
         <Carousel />
         <Category />

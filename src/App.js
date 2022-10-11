@@ -9,7 +9,6 @@ import { cartContext } from "./Context/context";
 import { modalContext } from "./Context/modalContext";
 import Modal from "./components/Modal/Modal";
 import { cartCountContext } from "./Context/cartCountContext";
-import Home from "./pages/home";
 
 const App = () => {
   const { cart } = useContext(cartContext);
@@ -29,8 +28,7 @@ const App = () => {
         <Header />
         <main>
           <Routes>
-            {/* <Route exact path="/" element={<Register />} /> */}
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Register />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/products" element={<ProductListingPage />} />
           </Routes>

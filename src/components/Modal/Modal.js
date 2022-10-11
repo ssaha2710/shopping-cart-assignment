@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./Modal.css";
 import CartProducts from "../cartProducts/cartProducts";
 import { cartCountContext } from "../../Context/cartCountContext";
+import Header from "../Header/header";
 
 const Modal = ({ setOpenModal, productDetails }) => {
   const [totalPrice, setTotalPrice] = useState(0);

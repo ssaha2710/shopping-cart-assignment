@@ -18,3 +18,15 @@ footer {
   width: 100vw;
   position: fixed;
 }
+
+@media only screen and (max-width: 480px) {
+  main {
+    position: fixed;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  main {
+    position: fixed;
+  }
+}

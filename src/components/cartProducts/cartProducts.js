@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { cartContext } from "../../Context/context";
 import "./cartProducts.css";
+import LowestPrice from "./../../../public/static/images/lowest-price.png";
 
 const CartProducts = ({ productDetails, setTotalPrice }) => {
   const [products, setProducts] = useState(productDetails);
@@ -38,27 +39,43 @@ const CartProducts = ({ productDetails, setTotalPrice }) => {
   };
   return (
     <>
-      {products.map((el) => {
+      {products.map((el, idx) => {
         return (
           el.quantity > 0 && (
             <div className="cart-list-product" key={el.id}>
-              <img src={el.imageURL} alt={el.name} />
+              <img data-testid="img" src={el.imageURL} alt={el.name} />
               <div className="cart-details">
-                <p>{el.name}</p>
+                <p data-testid="item-name">{el.name}</p>
                 <div className="cart-modifier">
-                  <button onClick={() => decrementQuantity(el.id)}>-</button>
-                  <p> {el.quantity} </p>
-                  <button onClick={() => incrementQuantity(el.id)}>+</button>
-                  <span>X {`Rs . ${el.price}`}</span>
+                  <button
+                    data-testid={`decrement-button-${idx}`}
+                    onClick={() => decrementQuantity(el.id)}
+                  >
+                    -
+                  </button>
+                  <p data-testid={`item-quantity-${idx}`}> {el.quantity} </p>
+                  <button
+                    data-testid={`increment-button-${idx}`}
+                    onClick={() => incrementQuantity(el.id)}
+                  >
+                    +
+                  </button>
+                  <span data-testid="item-price">X {`Rs . ${el.price}`}</span>
                 </div>
               </div>
-              <div className="cart-price">{`Rs . ${
+              <div data-testid="total-price" className="cart-price">{`Rs . ${
                 el.price * el.quantity
               }`}</div>
             </div>
           )
         );
       })}
+      {products.length > 0 && (
+        <aside className="lowest-price">
+          <img src={LowestPrice} alt="Lowest Price banner" />
+          <p>You won't find it cheaper anywhere</p>
+        </aside>
+      )}
     </>
   );
 };

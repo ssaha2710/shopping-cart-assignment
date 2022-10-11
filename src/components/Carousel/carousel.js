@@ -33,11 +33,12 @@ const Carousel = () => {
   };
 
   return (
-    <div className="container-slider">
+    <div data-testid="slider" className="container-slider">
       {banners &&
         banners.map((el, index) => {
           return (
             <div
+              data-testid={`slider-${index}`}
               key={el.id}
               className={
                 slideIndex === index + 1 ? "slide active-anim" : "slide"
@@ -53,6 +54,8 @@ const Carousel = () => {
       <div className="container-dots">
         {Array.from({ length: 5 }).map((item, index) => (
           <div
+            data-testid={`container-dot-${index}`}
+            key={index}
             onClick={() => moveDot(index + 1)}
             className={slideIndex === index + 1 ? "dot active" : "dot"}
           ></div>

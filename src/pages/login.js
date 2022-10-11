@@ -62,9 +62,9 @@ const Login = () => {
                 Login
               </button>
               {flag && (
-                <Alert color="primary" variant="warning">
+                <div   data-testid="alert" color="primary" variant="warning">
                   Incorrect Credentials
-                </Alert>
+                </div>
               )}
             </form>
           </div>

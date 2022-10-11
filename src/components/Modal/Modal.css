@@ -92,7 +92,7 @@
   width: 90%;
   border-radius: 8px;
   margin-bottom: 2%;
-  background-color: maroon;
+  background-color: #fc035a;
   color: white;
 }
 
@@ -102,4 +102,31 @@
   height: 85%;
   justify-content: center;
   align-items: center;
+}
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 480px) {
+  .modalContainer {
+    height: 92%;
+    position: absolute;
+    top: 8%;
+    width: 100%;
+  }
+  .modalContainer .title {
+    background: white;
+    color: black;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .modalContainer {
+    height: 92%;
+    position: absolute;
+    top: 8%;
+    width: 100%;
+  }
+  .modalContainer .title {
+    background: white;
+    color: black;
+  }
 }
